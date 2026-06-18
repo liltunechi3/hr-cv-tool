@@ -18,9 +18,7 @@ const content = {
     job_title_label: "Judul Pekerjaan",
     job_title_placeholder: "contoh: Senior Software Engineer",
     qualifications_label: "Kualifikasi yang Dibutuhkan",
-    qualification_placeholder: "contoh: Minimal 3 tahun pengalaman di React",
-    add_qualification: "Tambah Kualifikasi",
-    remove: "Hapus",
+    qualification_placeholder: "Satu kualifikasi per baris, contoh:\nMinimal 3 tahun pengalaman di React\nMenguasai TypeScript dan Node.js\nPengalaman dengan sistem CI/CD",
     job_desc_label: "Deskripsi Pekerjaan",
     job_desc_placeholder:
       "Jelaskan tanggung jawab dan detail pekerjaan...",
@@ -44,7 +42,7 @@ const content = {
     footer: "HR CV Evaluator — Didukung oleh Supabase AI",
     error_no_file: "Silakan upload file CV terlebih dahulu.",
     error_no_title: "Silakan isi judul pekerjaan.",
-    error_no_quals: "Silakan tambahkan minimal satu kualifikasi.",
+    error_no_quals: "Silakan isi minimal satu kualifikasi.",
     error_parse: "Gagal memproses file CV. Pastikan file tidak rusak.",
     error_evaluate: "Evaluasi gagal. Coba lagi.",
   },
@@ -58,9 +56,7 @@ const content = {
     job_title_label: "Job Title",
     job_title_placeholder: "e.g. Senior Software Engineer",
     qualifications_label: "Required Qualifications",
-    qualification_placeholder: "e.g. Minimum 3 years of React experience",
-    add_qualification: "Add Qualification",
-    remove: "Remove",
+    qualification_placeholder: "One qualification per line, e.g.:\nMinimum 3 years of React experience\nProficient in TypeScript and Node.js\nExperience with CI/CD systems",
     job_desc_label: "Job Description",
     job_desc_placeholder: "Describe the responsibilities and job details...",
     upload_label: "Upload CV",
@@ -95,7 +91,7 @@ export default function Home() {
   const t = content[lang];
 
   const [jobTitle, setJobTitle] = useState("");
-  const [qualifications, setQualifications] = useState(["", "", ""]);
+  const [qualificationsText, setQualificationsText] = useState("");
   const [jobDesc, setJobDesc] = useState("");
   const [file, setFile] = useState<File | null>(null);
   const [cvText, setCvText] = useState("");
@@ -143,20 +139,6 @@ export default function Home() {
     }
   };
 
-  const addQualification = () => {
-    setQualifications([...qualifications, ""]);
-  };
-
-  const removeQualification = (index: number) => {
-    setQualifications(qualifications.filter((_, i) => i !== index));
-  };
-
-  const updateQualification = (index: number, value: string) => {
-    const updated = [...qualifications];
-    updated[index] = value;
-    setQualifications(updated);
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
@@ -166,7 +148,11 @@ export default function Home() {
       return;
     }
 
-    const validQuals = qualifications.filter((q) => q.trim());
+    const validQuals = qualificationsText
+      .split("\n")
+      .map((q) => q.trim())
+      .filter((q) => q.length > 0);
+
     if (validQuals.length === 0) {
       setError(t.error_no_quals);
       return;
@@ -319,61 +305,19 @@ export default function Home() {
           {/* Qualifications */}
           <div style={{ marginBottom: 24 }}>
             <label style={labelStyle}>{t.qualifications_label}</label>
-            {qualifications.map((q, i) => (
-              <div
-                key={i}
-                style={{
-                  display: "flex",
-                  gap: 8,
-                  marginBottom: 8,
-                  alignItems: "center",
-                }}
-              >
-                <input
-                  type="text"
-                  value={q}
-                  onChange={(e) => updateQualification(i, e.target.value)}
-                  placeholder={`${i + 1}. ${t.qualification_placeholder}`}
-                  style={{ ...inputStyle, marginBottom: 0, flex: 1 }}
-                />
-                {qualifications.length > 1 && (
-                  <button
-                    type="button"
-                    onClick={() => removeQualification(i)}
-                    style={{
-                      background: "transparent",
-                      border: "1px solid #ddd",
-                      color: "#888",
-                      padding: "8px 12px",
-                      borderRadius: 6,
-                      cursor: "pointer",
-                      fontSize: 12,
-                      whiteSpace: "nowrap",
-                      flexShrink: 0,
-                    }}
-                  >
-                    {t.remove}
-                  </button>
-                )}
-              </div>
-            ))}
-            <button
-              type="button"
-              onClick={addQualification}
-              style={{
-                background: "transparent",
-                border: `1px dashed ${G}`,
-                color: G,
-                padding: "8px 16px",
-                borderRadius: 6,
-                cursor: "pointer",
-                fontSize: 13,
-                fontWeight: 500,
-                marginTop: 4,
-              }}
-            >
-              + {t.add_qualification}
-            </button>
+            <textarea
+              value={qualificationsText}
+              onChange={(e) => setQualificationsText(e.target.value)}
+              placeholder={t.qualification_placeholder}
+              rows={6}
+              style={{ ...inputStyle, resize: "vertical", lineHeight: 1.7 }}
+            />
+            <p style={{ fontSize: 12, color: "#999", marginTop: 6 }}>
+              {lang === "id" ? "Satu kualifikasi per baris" : "One qualification per line"}
+              {qualificationsText.trim()
+                ? ` · ${qualificationsText.split("\n").filter((l) => l.trim()).length} ${lang === "id" ? "kualifikasi" : "qualifications"}`
+                : ""}
+            </p>
           </div>
 
           {/* Job Description */}
