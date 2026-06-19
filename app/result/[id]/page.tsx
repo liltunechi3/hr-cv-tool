@@ -85,7 +85,7 @@ export default async function ResultPage({
         }}
       >
         <span style={{ color: C, fontWeight: 700, fontSize: 20, letterSpacing: "-0.5px" }}>
-          HR CV Evaluator
+          PT Neo Pudji Jaya
         </span>
         <Link
           href="/"
@@ -288,7 +288,7 @@ export default async function ResultPage({
           fontSize: 14,
         }}
       >
-        HR CV Evaluator — {isId ? "Didukung oleh" : "Powered by"} Supabase AI
+        PT Neo Pudji Jaya — {isId ? "Sistem Evaluasi CV" : "CV Evaluation System"}
       </footer>
     </div>
   );

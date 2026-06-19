@@ -9,11 +9,11 @@ const C = "#F5F0E8";
 
 const content = {
   id: {
-    nav_title: "HR CV Evaluator",
+    nav_title: "PT Neo Pudji Jaya",
     lang_toggle: "EN",
     hero_title: "Evaluasi CV dengan Kecerdasan Buatan",
     hero_subtitle:
-      "Upload CV kandidat dan dapatkan analisis mendetail dalam hitungan detik. Didukung oleh Supabase AI.",
+      "Sistem evaluasi CV resmi PT Neo Pudji Jaya. Upload CV kandidat dan dapatkan analisis mendetail dalam hitungan detik.",
     form_title: "Mulai Evaluasi",
     job_title_label: "Judul Pekerjaan",
     job_title_placeholder: "contoh: Senior Software Engineer",
@@ -32,14 +32,14 @@ const content = {
     submitting: "Mengevaluasi...",
     feature1_title: "Analisis Mendalam",
     feature1_desc:
-      "Supabase AI menganalisis CV secara menyeluruh menggunakan semantic similarity untuk penilaian yang akurat.",
+      "Sistem AI kami menganalisis CV secara menyeluruh menggunakan teknologi ATS untuk penilaian yang akurat.",
     feature2_title: "Checklist Kualifikasi",
     feature2_desc:
       "Setiap kualifikasi diperiksa satu per satu dengan bukti langsung dari CV kandidat.",
     feature3_title: "Laporan Terstruktur",
     feature3_desc:
       "Hasil evaluasi dapat diexport ke PDF untuk dokumentasi dan arsip rekrutmen.",
-    footer: "HR CV Evaluator — Didukung oleh Supabase AI",
+    footer: "PT Neo Pudji Jaya — Sistem Evaluasi CV",
     error_no_file: "Silakan upload file CV terlebih dahulu.",
     error_no_title: "Silakan isi judul pekerjaan.",
     error_no_quals: "Silakan isi minimal satu kualifikasi.",
@@ -47,11 +47,11 @@ const content = {
     error_evaluate: "Evaluasi gagal. Coba lagi.",
   },
   en: {
-    nav_title: "HR CV Evaluator",
+    nav_title: "PT Neo Pudji Jaya",
     lang_toggle: "ID",
     hero_title: "Evaluate CVs with Artificial Intelligence",
     hero_subtitle:
-      "Upload a candidate's CV and get a detailed analysis in seconds. Powered by Supabase AI.",
+      "Official CV evaluation system by PT Neo Pudji Jaya. Upload a candidate's CV and get a detailed analysis in seconds.",
     form_title: "Start Evaluation",
     job_title_label: "Job Title",
     job_title_placeholder: "e.g. Senior Software Engineer",
@@ -69,14 +69,14 @@ const content = {
     submitting: "Evaluating...",
     feature1_title: "Deep Analysis",
     feature1_desc:
-      "Supabase AI analyzes the CV using semantic similarity to provide accurate assessments.",
+      "Our AI system analyzes the full CV using ATS technology to provide accurate assessments.",
     feature2_title: "Qualification Checklist",
     feature2_desc:
       "Each qualification is checked individually with direct evidence from the candidate's CV.",
     feature3_title: "Structured Report",
     feature3_desc:
       "Evaluation results can be exported to PDF for documentation and recruitment records.",
-    footer: "HR CV Evaluator — Powered by Supabase AI",
+    footer: "PT Neo Pudji Jaya — CV Evaluation System",
     error_no_file: "Please upload a CV file first.",
     error_no_title: "Please fill in the job title.",
     error_no_quals: "Please add at least one qualification.",
