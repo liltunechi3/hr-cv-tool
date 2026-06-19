@@ -11,7 +11,7 @@ const content = {
   id: {
     nav_title: "PT Neo Pudji Jaya",
     lang_toggle: "EN",
-    hero_title: "Evaluasi CV dengan Kecerdasan Buatan",
+    hero_title: "Seleksi CV Kandidat Lebih Cepat dan Akurat",
     hero_subtitle:
       "Sistem evaluasi CV resmi PT Neo Pudji Jaya. Upload CV kandidat dan dapatkan analisis mendetail dalam hitungan detik.",
     form_title: "Mulai Evaluasi",
@@ -49,7 +49,7 @@ const content = {
   en: {
     nav_title: "PT Neo Pudji Jaya",
     lang_toggle: "ID",
-    hero_title: "Evaluate CVs with Artificial Intelligence",
+    hero_title: "Screen Candidates Faster and More Accurately",
     hero_subtitle:
       "Official CV evaluation system by PT Neo Pudji Jaya. Upload a candidate's CV and get a detailed analysis in seconds.",
     form_title: "Start Evaluation",
